@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload>
+  <config>
+    <!-- type=sqlite3|mysql -->
+    <meta type="none">
+      <!-- SQLite3 (too slow !!!)  -->
+      <pathname>./workload.db</pathname>
+      <!-- MySQL -->
+      <hostname>127.0.0.1</hostname>
+      <port>0</port>
+      <username>workload</username>
+      <password>workload</password>
+      <database>workload</database>
+    </meta>
+    <operation pause="no">
+      <left>7</left>
+      <right>1</right>
+      <interval>0</interval>
+
+      <!-- maximum 1000000, assign=random|ordered|even -->
+      <files remove="yes" assign="even">10</files>
+
+      <prefix>workload</prefix>
+      <suffix>.bin</suffix>
+      <filesize>4096</filesize>
+      <duration>0</duration>
+
+      <!-- (r)ead, (w)rite, rw -->
+      <access sync="yes" sendfile="yes" threads="0">rw</access>
+    </operation>
+    <storage>
+      <disk>
+        <!-- <name>volume1</name> -->
+        <path create="yes">./test/disk1</path>
+      </disk>
+      <disk>
+        <path create="yes">./test/disk2</path>
+      </disk>
+      <disk>
+        <path create="yes">./test/disk3</path>
+      </disk>
+      <!--
+      <disk fakeoff="17000">
+        <path create="yes">./test/disk4</path>
+      </disk>
+      <disk fakeoff="16000">
+        <path create="yes">./test/disk5</path>
+      </disk>
+      <disk fakeoff="15000">
+        <path create="yes">./test/disk6</path>
+      </disk>
+      <disk fakeoff="14000">
+        <path create="yes">./test/disk7</path>
+      </disk>
+      <disk fakeoff="13000">
+        <path create="yes">./test/disk8</path>
+      </disk>
+      <disk fakeoff="12000">
+        <path create="yes">./test/disk9</path>
+      </disk>
+      <disk fakeoff="11000">
+        <path create="yes">./test/disk10</path>
+      </disk>
+      <disk fakeoff="10000">
+        <path create="yes">./test/disk11</path>
+      </disk>
+      <disk fakeoff="9000">
+        <path create="yes">./test/disk12</path>
+      </disk>
+      <disk fakeoff="8000">
+        <path create="yes">./test/disk13</path>
+      </disk>
+      <disk fakeoff="7000">
+        <path create="yes">./test/disk14</path>
+      </disk>
+      <disk fakeoff="6000">
+        <path create="yes">./test/disk15</path>
+      </disk>
+      <disk fakeoff="5000">
+        <path create="yes">./test/disk16</path>
+      </disk>
+      -->
+    </storage>
+  </config>
+</workload>
+<!-- vim: set expandtab: -->
+<!-- End of config -->
